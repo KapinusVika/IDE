@@ -4,10 +4,10 @@ import com.automation.lab.fall.kapinusFilimonov.core22.dao.AbstractModel;
 
 import java.util.Objects;
 
-public class File extends AbstractModel {
+public class Version extends AbstractModel {
     private String name;
 
-    public File(String name){
+    public Version(String name) {
         this.name = name;
     }
 
@@ -21,7 +21,7 @@ public class File extends AbstractModel {
 
     @Override
     public String toString() {
-        return "File{" +
+        return "Version{" +
                 "name='" + name + '\'' +
                 '}';
     }
@@ -30,8 +30,8 @@ public class File extends AbstractModel {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        File file = (File) o;
-        return Objects.equals(name, file.name);
+        Version version = (Version) o;
+        return Objects.equals(name, version.name);
     }
 
     @Override
