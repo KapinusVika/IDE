@@ -10,5 +10,8 @@
         <module name="IDE" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="IDE_Projectt" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
