@@ -6,11 +6,19 @@
     <select id="getById" resultMap="file_map">
         SELECT *
         FROM files
+        LEFT JOIN versions_files
+        ON versions_files.fileId = files.Id
+        LEFT JOIN versions
+        ON versions_files.versionHashCode = versions.hashCode
         WHERE id=#{id}
     </select>
     <select id="get" resultMap="file_map">
         SELECT *
         FROM files
+        LEFT JOIN versions_files
+        ON versions_files.fileId = files.Id
+        LEFT JOIN versions
+        ON versions_files.versionHashCode = versions.hashCode
     </select>
     <delete id="deleteById">
         DELETE FROM files
