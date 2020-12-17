@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="version_mapper">
+    <select id="getByHashCode" resultMap="version_map">
+        SELECT *
+        FROM versions
+        WHERE HashCode=#{HashCode}
+    </select>
+    <select id="get" resultMap="version_map">
+        SELECT *
+        FROM versions
+    </select>
+    <delete id="deleteByHashCode">
+        DELETE FROM version
+        WHERE hashCode=#{hashCode}
+    </delete>
+    <insert id="create">
+        INSERT INTO version(hashCode)
+        VALUES (#{hashCode})
+    </insert>
+    <update id="update">
+        UPDATE version
+        SET hashCode=#{hashCode}
+        WHERE hashCode=#{hashCode}
+    </update>
+
+    <resultMap id="file_map"
+               type= "com.automation.lab.fall.kapinusFilimonov.core22.domain.Version"
+               autoMapping="false">
+        <id property="hashCode" column="hashCode"/>
+    </resultMap>
+</mapper>
