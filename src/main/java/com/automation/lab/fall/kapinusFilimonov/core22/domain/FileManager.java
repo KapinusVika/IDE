@@ -1,24 +1,26 @@
 package com.automation.lab.fall.kapinusFilimonov.core22.domain;
 
+import org.apache.ibatis.javassist.compiler.Javac;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class FileManager {
 
-    public static void createFile(){
+    public static void createFile(String path) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input name of your file: ");
         String name = sc.nextLine();
         System.out.print("\n");
 
-        File myFile = new File(name + ".txt");
+        File myFile = new File(path, name + ".txt");
 
-        try (PrintWriter pw = new PrintWriter(myFile)){
+        try (PrintWriter pw = new PrintWriter(myFile)) {
             myFile.createNewFile();
 
             String line = sc.nextLine();
 
-            while (!line.equals("esc")){
+            while (!line.equals("esc")) {
                 pw.println(line);
                 line = sc.nextLine();
             }
@@ -29,36 +31,87 @@ public class FileManager {
         }
     }
 
-    public static String readFile(String filename) throws IOException {
-        File file = new File(filename);
-        int len = (int) file.length();
-        byte[] bytes = new byte[len];
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(file);
-            assert len == fis.read(bytes);
+    public static void readFile(String path) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input name of your file: ");
+        String name = sc.nextLine();
+        File myFile = new File(path, name + ".txt");
+        try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+            }
+            String everything = sb.toString();
+            System.out.println(everything);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
-            close(fis);
-            throw e;
+            e.printStackTrace();
         }
-        return new String(bytes, "UTF-8");
+
     }
 
-    public static void writeFile(String filename, String text) throws IOException {
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream(filename);
-            fos.write(text.getBytes("UTF-8"));
+    public static void deleteByNum(String path) {
+        Scanner sc = new Scanner(System.in);
+        int a, b;
+        System.out.println("Input name of your file: ");
+        String name = sc.nextLine();
+        File myFile = new File(path, name + ".txt");
+        try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+            }
+            System.out.println("Write start index and end index : ");
+            a = sc.nextInt();
+            b = sc.nextInt();
+            sb.delete(a, b);
+            String everything = sb.toString();
+
+            System.out.println(everything);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
-            close(fos);
-            throw e;
+            e.printStackTrace();
         }
     }
 
-    public static void close(Closeable closeable) {
-        try {
-            closeable.close();
-        } catch(IOException ignored) {
+    public static void editByNum(String path) {
+        Scanner sc = new Scanner(System.in);
+        int a, b;
+        System.out.println("Write your text");
+        String str = sc.nextLine();
+        System.out.println("Input name of your file: ");
+        String name = sc.nextLine();
+        File myFile = new File(path, name + ".txt");
+        try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+            }
+            System.out.println("Write start index and end index : ");
+            a = sc.nextInt();
+            b = sc.nextInt();
+            sb.replace(a,b,str);
+            String everything = sb.toString();
+            System.out.println(everything);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
 }
