@@ -1,10 +1,10 @@
-package com.automation.lab.fall.kapinusFilimonov.core22.fileutil;
+package com.automation.lab.fall.kapinusFilimonov.core22.util;
 
 import java.io.*;
 import java.util.Scanner;
 import java.io.File;
 
-public class FileManager {
+public class FileUtil {
 
     public static void createFile(String path) {
         Scanner sc = new Scanner(System.in);
