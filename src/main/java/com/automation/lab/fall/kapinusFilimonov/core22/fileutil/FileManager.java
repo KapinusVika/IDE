@@ -1,9 +1,8 @@
-package com.automation.lab.fall.kapinusFilimonov.core22.domain;
-
-import org.apache.ibatis.javassist.compiler.Javac;
+package com.automation.lab.fall.kapinusFilimonov.core22.fileutil;
 
 import java.io.*;
 import java.util.Scanner;
+import java.io.File;
 
 public class FileManager {
 
