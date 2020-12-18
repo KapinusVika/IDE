@@ -121,9 +121,6 @@ public class FileUtil {
     }
 
     public static void getVersionInfo(String path){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Input name of your file: ");
-        String name = sc.nextLine();
-        File myFile = new File(path, name + ".txt");
+        System.out.println("Method not created !");
     }
 }
