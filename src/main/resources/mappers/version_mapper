@@ -6,11 +6,19 @@
     <select id="getByHashCode" resultMap="version_map">
         SELECT *
         FROM versions
+        LEFT JOIN versions_files
+        ON versions_files.versionHashCode = hashCode
+        LEFT JOIN files
+        ON versions_files.fileId = files.Id
         WHERE HashCode=#{HashCode}
     </select>
     <select id="get" resultMap="version_map">
         SELECT *
         FROM versions
+        LEFT JOIN versions_files
+        ON versions_files.versionHashCode = hashCode
+        LEFT JOIN files
+        ON versions_files.fileId = files.Id
     </select>
     <delete id="deleteByHashCode">
         DELETE FROM version

@@ -2,30 +2,31 @@ package com.automation.lab.fall.kapinusFilimonov.core22.domain;
 
 import com.automation.lab.fall.kapinusFilimonov.core22.dao.AbstractModel;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Version extends AbstractModel {
-    private String name;
+    private List<File> filesList;
 
     public Version(){
     }
 
-    public Version(String name) {
-        this.name = name;
+    public Version(List<File> filesList) {
+        this.filesList = filesList;
     }
 
-    public String getName() {
-        return name;
+    public List<File> getFilesList() {
+        return filesList;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFilesList(List<File> filesList) {
+        this.filesList = filesList;
     }
 
     @Override
     public String toString() {
         return "Version{" +
-                "name='" + name + '\'' +
+                "filesList=" + filesList +
                 '}';
     }
 
@@ -34,11 +35,11 @@ public class Version extends AbstractModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Version version = (Version) o;
-        return Objects.equals(name, version.name);
+        return Objects.equals(filesList, version.filesList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(filesList);
     }
 }
