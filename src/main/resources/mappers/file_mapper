@@ -39,5 +39,6 @@
                autoMapping="false">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
+        <collection property="version" resultMap="version_mapper.version_map"/>
     </resultMap>
 </mapper>
