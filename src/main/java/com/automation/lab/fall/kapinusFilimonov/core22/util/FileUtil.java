@@ -120,6 +120,23 @@ public class FileUtil {
 
     }
 
+    public static File changeExtension(String path) {
+        String extension = "java";
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input name of your file: ");
+        String name = sc.nextLine();
+        File myFile = new File(path, name + ".txt");
+        String filename = myFile.getName();
+
+        if (filename.contains(".")) {
+            filename = filename.substring(0, filename.lastIndexOf('.'));
+        }
+        filename += "." + extension;
+
+        myFile.renameTo(new File(myFile.getParentFile(), filename));
+        return myFile;
+    }
+
     public static void getVersionInfo(String path){
         System.out.println("Method not created !");
     }

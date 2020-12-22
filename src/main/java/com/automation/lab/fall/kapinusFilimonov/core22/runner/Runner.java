@@ -1,20 +1,21 @@
 package com.automation.lab.fall.kapinusFilimonov.core22.runner;
 
-import com.automation.lab.fall.kapinusFilimonov.core22.domain.File;
+import com.automation.lab.fall.kapinusFilimonov.core22.util.FileCompileService;
 import com.automation.lab.fall.kapinusFilimonov.core22.util.FileUtil;
+import org.apache.commons.cli.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
 public class Runner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException, IOException {
         Scanner sc = new Scanner(System.in);
         String path;
         System.out.println("---------------------------------");
         System.out.println("|Welcome to console IDE for Java|");
         System.out.println("|  Enter 'help' to get commands |");
         System.out.println("---------------------------------");
-
 
         boolean flag = true;
         while (flag) {
@@ -67,6 +68,14 @@ public class Runner {
                     System.out.println("Input file path");
                     path = sc.nextLine();
                     FileUtil.getVersionInfo(path);
+                }
+
+                case "compile":{
+                    System.out.println("Mode 'compile");
+                    System.out.println("Input file path");
+                    path = sc.nextLine();
+                    FileCompileService.compile(path);
+                    break;
                 }
 
                 case "exit":{

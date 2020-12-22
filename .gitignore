@@ -3,3 +3,4 @@
 *.iml
 *.idea
 *target
+src/main/resources/config.properties
