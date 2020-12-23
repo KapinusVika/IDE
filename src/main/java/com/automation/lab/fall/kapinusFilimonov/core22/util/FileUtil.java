@@ -12,7 +12,7 @@ public class FileUtil {
         String name = sc.nextLine();
         System.out.print("\n");
 
-        File myFile = new File(path, name + ".txt");
+        File myFile = new File(path, name + ".java");
 
         try (PrintWriter pw = new PrintWriter(myFile)) {
             myFile.createNewFile();
@@ -23,6 +23,7 @@ public class FileUtil {
                 pw.println(line);
                 line = sc.nextLine();
             }
+            System.out.println("File creation - successful ! ");
 
         } catch (IOException e) {
             System.out.println("Error creation file!");
@@ -34,7 +35,7 @@ public class FileUtil {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input name of your file: ");
         String name = sc.nextLine();
-        File myFile = new File(path, name + ".txt");
+        File myFile = new File(path, name + ".java");
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -59,7 +60,7 @@ public class FileUtil {
         int a, b;
         System.out.println("Input name of your file: ");
         String name = sc.nextLine();
-        File myFile = new File(path, name + ".txt");
+        File myFile = new File(path, name + ".java");
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -74,7 +75,9 @@ public class FileUtil {
             b = sc.nextInt();
             sb.delete(a, b);
             String everything = sb.toString();
-
+            PrintWriter pw = new PrintWriter(myFile);
+            pw.println(everything);
+            pw.close();
             System.out.println(everything);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -90,7 +93,7 @@ public class FileUtil {
         String str = sc.nextLine();
         System.out.println("Input name of your file: ");
         String name = sc.nextLine();
-        File myFile = new File(path, name + ".txt");
+        File myFile = new File(path, name + ".java");
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -106,11 +109,18 @@ public class FileUtil {
             sb.replace(a,b,str);
             String everything = sb.toString();
             System.out.println(everything);
+            PrintWriter pw = new PrintWriter(myFile);
+            pw.println(everything);
+            pw.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public static void getVersionInfo(String path){
+        System.out.println("Method not created !");
     }
 }

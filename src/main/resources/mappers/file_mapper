@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="file_mapper">
+    <select id="getById" resultMap="file_map">
+        SELECT *
+        FROM files
+        LEFT JOIN versions_files
+        ON versions_files.fileId = files.Id
+        LEFT JOIN versions
+        ON versions_files.versionHashCode = versions.hashCode
+        WHERE id=#{id}
+    </select>
+    <select id="get" resultMap="file_map">
+        SELECT *
+        FROM files
+        LEFT JOIN versions_files
+        ON versions_files.fileId = files.Id
+        LEFT JOIN versions
+        ON versions_files.versionHashCode = versions.hashCode
+    </select>
+    <delete id="deleteById">
+        DELETE FROM files
+        WHERE id=#{id}
+    </delete>
+    <insert id="create">
+        INSERT INTO files(name)
+        VALUES (#{name})
+    </insert>
+    <update id="update">
+        UPDATE files
+        SET name=#{name}
+        WHERE id=#{id}
+    </update>
+
+    <resultMap id="file_map"
+               type= "com.automation.lab.fall.kapinusFilimonov.core22.domain.FileModel"
+               autoMapping="false">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <collection property="version" resultMap="version_mapper.version_map"/>
+    </resultMap>
+</mapper>
