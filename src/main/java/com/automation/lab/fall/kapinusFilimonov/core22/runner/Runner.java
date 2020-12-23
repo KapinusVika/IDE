@@ -1,6 +1,6 @@
 package com.automation.lab.fall.kapinusFilimonov.core22.runner;
 
-import com.automation.lab.fall.kapinusFilimonov.core22.util.FileCompileService;
+import com.automation.lab.fall.kapinusFilimonov.core22.util.JavaExecutionService;
 import com.automation.lab.fall.kapinusFilimonov.core22.util.FileUtil;
 import org.apache.commons.cli.*;
 
@@ -74,7 +74,15 @@ public class Runner {
                     System.out.println("Mode 'compile");
                     System.out.println("Input file path");
                     path = sc.nextLine();
-                    FileCompileService.compile(path);
+                    JavaExecutionService.compile(path);
+                    break;
+                }
+
+                case "run":{
+                    System.out.println("Mode 'run");
+                    System.out.println("Input file path");
+                    path = sc.nextLine();
+                    JavaExecutionService.run(path);
                     break;
                 }
 

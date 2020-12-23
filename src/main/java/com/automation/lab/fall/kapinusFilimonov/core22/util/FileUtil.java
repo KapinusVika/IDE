@@ -12,7 +12,7 @@ public class FileUtil {
         String name = sc.nextLine();
         System.out.print("\n");
 
-        File myFile = new File(path, name + ".txt");
+        File myFile = new File(path, name + ".java");
 
         try (PrintWriter pw = new PrintWriter(myFile)) {
             myFile.createNewFile();
@@ -35,7 +35,7 @@ public class FileUtil {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input name of your file: ");
         String name = sc.nextLine();
-        File myFile = new File(path, name + ".txt");
+        File myFile = new File(path, name + ".java");
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -60,7 +60,7 @@ public class FileUtil {
         int a, b;
         System.out.println("Input name of your file: ");
         String name = sc.nextLine();
-        File myFile = new File(path, name + ".txt");
+        File myFile = new File(path, name + ".java");
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -93,7 +93,7 @@ public class FileUtil {
         String str = sc.nextLine();
         System.out.println("Input name of your file: ");
         String name = sc.nextLine();
-        File myFile = new File(path, name + ".txt");
+        File myFile = new File(path, name + ".java");
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -118,23 +118,6 @@ public class FileUtil {
             e.printStackTrace();
         }
 
-    }
-
-    public static File changeExtension(String path) {
-        String extension = "java";
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Input name of your file: ");
-        String name = sc.nextLine();
-        File myFile = new File(path, name + ".txt");
-        String filename = myFile.getName();
-
-        if (filename.contains(".")) {
-            filename = filename.substring(0, filename.lastIndexOf('.'));
-        }
-        filename += "." + extension;
-
-        myFile.renameTo(new File(myFile.getParentFile(), filename));
-        return myFile;
     }
 
     public static void getVersionInfo(String path){

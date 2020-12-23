@@ -1,17 +1,17 @@
 package com.automation.lab.fall.kapinusFilimonov.core22.dao.impl;
 
 import com.automation.lab.fall.kapinusFilimonov.core22.dao.DAO;
-import com.automation.lab.fall.kapinusFilimonov.core22.domain.File;
+import com.automation.lab.fall.kapinusFilimonov.core22.domain.FileModel;
 import com.automation.lab.fall.kapinusFilimonov.core22.factory.SessionFactory;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-public class FileDAOImplSql implements DAO<File> {
+public class FileDAOImplSql implements DAO<FileModel> {
     private final static String namespace = "file_mapper";
 
     @Override
-    public File create(File o)  {
+    public FileModel create(FileModel o)  {
         SqlSession sqlSession = SessionFactory.getSession();
         sqlSession.insert(namespace + ".create", o);
         sqlSession.commit();
@@ -20,23 +20,23 @@ public class FileDAOImplSql implements DAO<File> {
     }
 
     @Override
-    public File getById(Long id) {
+    public FileModel getById(Long id) {
         SqlSession sqlSession = SessionFactory.getSession();
-        File a = sqlSession.selectOne(namespace + ".getById", id);
+        FileModel a = sqlSession.selectOne(namespace + ".getById", id);
         sqlSession.close();
         return a;
     }
 
     @Override
-    public List<File> get() {
+    public List<FileModel> get() {
         SqlSession sqlSession = SessionFactory.getSession();
-        List<File> as = sqlSession.selectList(namespace + ".get");
+        List<FileModel> as = sqlSession.selectList(namespace + ".get");
         sqlSession.close();
         return as;
     }
 
     @Override
-    public File update(File o){
+    public FileModel update(FileModel o){
         SqlSession sqlSession = SessionFactory.getSession();
         sqlSession.update(namespace + ".update", o);
         sqlSession.commit();

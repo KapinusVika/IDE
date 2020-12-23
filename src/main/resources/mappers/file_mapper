@@ -35,7 +35,7 @@
     </update>
 
     <resultMap id="file_map"
-               type= "com.automation.lab.fall.kapinusFilimonov.core22.domain.File"
+               type= "com.automation.lab.fall.kapinusFilimonov.core22.domain.FileModel"
                autoMapping="false">
         <id property="id" column="id"/>
         <result property="name" column="name"/>

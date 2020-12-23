@@ -5,14 +5,14 @@ import com.automation.lab.fall.kapinusFilimonov.core22.dao.AbstractModel;
 import java.util.List;
 import java.util.Objects;
 
-public class File extends AbstractModel {
+public class FileModel extends AbstractModel {
     private String name;
     private List<Version> versionList;
 
-    public File(){
+    public FileModel(){
     }
 
-    public File(String name, List<Version> versionList){
+    public FileModel(String name, List<Version> versionList){
         this.name = name;
         this.versionList = versionList;
     }
@@ -45,7 +45,7 @@ public class File extends AbstractModel {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        File file = (File) o;
+        FileModel file = (FileModel) o;
         return Objects.equals(name, file.name) &&
                 Objects.equals(versionList, file.versionList);
     }
