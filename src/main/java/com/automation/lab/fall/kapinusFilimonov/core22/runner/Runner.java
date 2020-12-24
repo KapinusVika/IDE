@@ -25,7 +25,7 @@ import java.util.Scanner;
                 case "help":{
                     System.out.println("---------------------------------------------------------------------");
                     System.out.println("|How to use it :                                                     |");
-                    System.out.println("|Example of path : 'C:/Path/To/File/FileName', dont write extension !|");
+                    System.out.println("|Example of path : 'C:/Path/To/File/FileName'                        |");
                     System.out.println("|Help - show info about all commands                                 |");
                     System.out.println("|Create - create .txt file by your path                              |");
                     System.out.println("|View - shows the contents of the file                               |");

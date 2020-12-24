@@ -9,7 +9,7 @@ public class FileUtil {
     public static void createFile(String path) {
         Scanner sc = new Scanner(System.in);
         System.out.print("\n");
-        File myFile = new File(path + ".java");
+        File myFile = new File(path);
         System.out.println("Write your txt, when you ready write 'esc'");
         try (PrintWriter pw = new PrintWriter(myFile)) {
             myFile.createNewFile();
@@ -30,7 +30,7 @@ public class FileUtil {
 
     public static void readFile(String path) {
         Scanner sc = new Scanner(System.in);
-        File myFile = new File(path + ".java");
+        File myFile = new File(path);
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -54,7 +54,7 @@ public class FileUtil {
         Scanner sc = new Scanner(System.in);
         int a, b;
 
-        File myFile = new File(path + ".java");
+        File myFile = new File(path);
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -85,7 +85,7 @@ public class FileUtil {
         int a, b;
         System.out.println("Write your text");
         String str = sc.nextLine();
-        File myFile = new File(path + ".java");
+        File myFile = new File(path);
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
