@@ -12,8 +12,7 @@ public class JavaExecutionService {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input name of your file: ");
         String name = sc.nextLine();
-        File myFile = new File(path, name);
-        Process process = Runtime.getRuntime().exec("javac " + path + name + ".java");
+        Process process = Runtime.getRuntime().exec("javac " + path + ".java");
         printResults(process);
     }
 
@@ -21,7 +20,6 @@ public class JavaExecutionService {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input name of your file: ");
         String name = sc.nextLine();
-        File myFile = new File(path, name);
         Process process = Runtime.getRuntime().exec("java -classpath " + path + " " + name);
         printResults(process);
     }

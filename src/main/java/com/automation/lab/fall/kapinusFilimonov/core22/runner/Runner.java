@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
-public class Runner {
-    public static void main(String[] args) throws ParseException, IOException {
+    public class Runner {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         String path;
         System.out.println("---------------------------------");
@@ -23,12 +23,18 @@ public class Runner {
             switch (switcher){
 
                 case "help":{
-                    System.out.println("Help - show info about all commands");
-                    System.out.println("Create - create .txt file by your path");
-                    System.out.println("View - shows the contents of the file");
-                    System.out.println("Delete - deleting part of file content between two coordinates");
-                    System.out.println("Replace - replace part of file content between two coordinates");
-                    System.out.println("Exit - exit from program");
+                    System.out.println("---------------------------------------------------------------------");
+                    System.out.println("|How to use it :                                                     |");
+                    System.out.println("|Example of path : 'C:/Path/To/File/FileName', dont write extension !|");
+                    System.out.println("|Help - show info about all commands                                 |");
+                    System.out.println("|Create - create .txt file by your path                              |");
+                    System.out.println("|View - shows the contents of the file                               |");
+                    System.out.println("|Delete - deleting part of file content between two coordinates      |");
+                    System.out.println("|Replace - replace part of file content between two coordinates      |");
+                    System.out.println("|Exit - exit from program                                            |");
+                    System.out.println("|Compile - using 'javac' to your file                                |");
+                    System.out.println("|Run - using 'java' to your file                                     |");
+                    System.out.println("|____________________________________________________________________|");
                     break;
                 }
                 case "create":
@@ -61,17 +67,19 @@ public class Runner {
                     System.out.println("Input file path");
                     path = sc.nextLine();
                     FileUtil.editByNum(path);
+                    break;
                 }
 
                 case "version":{
-                    System.out.println("Mode 'Version Info...");
+                    System.out.println("Mode 'Version Info'...");
                     System.out.println("Input file path");
                     path = sc.nextLine();
                     FileUtil.getVersionInfo(path);
+                    break;
                 }
 
                 case "compile":{
-                    System.out.println("Mode 'compile");
+                    System.out.println("Mode 'compile'...");
                     System.out.println("Input file path");
                     path = sc.nextLine();
                     JavaExecutionService.compile(path);

@@ -8,12 +8,9 @@ public class FileUtil {
 
     public static void createFile(String path) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Input name of your file: ");
-        String name = sc.nextLine();
         System.out.print("\n");
-
-        File myFile = new File(path, name + ".java");
-
+        File myFile = new File(path + ".java");
+        System.out.println("Write your txt, when you ready write 'esc'");
         try (PrintWriter pw = new PrintWriter(myFile)) {
             myFile.createNewFile();
 
@@ -33,9 +30,7 @@ public class FileUtil {
 
     public static void readFile(String path) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Input name of your file: ");
-        String name = sc.nextLine();
-        File myFile = new File(path, name + ".java");
+        File myFile = new File(path + ".java");
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -58,9 +53,8 @@ public class FileUtil {
     public static void deleteByNum(String path) {
         Scanner sc = new Scanner(System.in);
         int a, b;
-        System.out.println("Input name of your file: ");
-        String name = sc.nextLine();
-        File myFile = new File(path, name + ".java");
+
+        File myFile = new File(path + ".java");
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -91,9 +85,7 @@ public class FileUtil {
         int a, b;
         System.out.println("Write your text");
         String str = sc.nextLine();
-        System.out.println("Input name of your file: ");
-        String name = sc.nextLine();
-        File myFile = new File(path, name + ".java");
+        File myFile = new File(path + ".java");
         try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
